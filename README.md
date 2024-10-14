@@ -1,4 +1,4 @@
-This project is a ** platform** for discovering, booking, and organizing sports activities and facilities. Users can join or host sports events, book courts, and connect with other sports enthusiasts.
+This project is a platform for discovering, booking, and organizing sports activities and facilities. Users can join or host sports events, book courts, and connect with other sports enthusiasts.
 
 ## Features
 
