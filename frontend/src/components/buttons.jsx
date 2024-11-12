@@ -1,6 +1,5 @@
-import React from 'react';
 
-function Button({ label, path }) {
+function Button(label, path ) {
     const handleNavigation = () => {
         window.location.href = path; // Redirects to the specified path
     };
