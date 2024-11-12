@@ -6,7 +6,7 @@ export default function LoginPage({setShowInjectedContent}){
             <div className=" bg-white rounded-3xl w-1/2 h-3/4 grid grid-cols-2 gap-4" onClick={(e) => e.stopPropagation()}>
                 <div className="bg-gray-100"></div>
                 <div className="">
-                <div className="font-bold text-xl text-sm/[50px] grid grid-cols-2 gap-4 content-between" > 
+                <div className="font-bold  grid grid-cols-2 gap-4 content-between" > 
                 <p>login/signup</p>
                 <button className='bg-gray-300  hover:bg-red-600 active:bg-red-700 active:text-white rounded-lg ' onClick={()=>{setShowInjectedContent(false)}}>X</button>
                 </div><hr />

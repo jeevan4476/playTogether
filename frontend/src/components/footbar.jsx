@@ -1,4 +1,3 @@
-import React from "react";
 
 function SubscribeSection() {
   return (
@@ -21,7 +20,7 @@ function SubscribeSection() {
             placeholder="Enter your email"
             className="border border-gray-300 rounded p-2 w-full"
           />
-          <p className="text-xs text-gray-500">We'll send you the latest updates</p>
+          <p className="text-xs text-gray-500"> We&apos;ll send you the latest updates</p>
           <button className="bg-black text-white font-semibold py-2 rounded mt-2 hover:bg-gray-800">
             Subscribe
           </button>
