@@ -61,7 +61,7 @@ This project is a platform for discovering, booking, and organizing sports activ
     - **Frontend**:
    ```bash
       cd client
-      npm start
+      npm run dev
       ```
 
     Visit `http://localhost:3000` for the frontend and `http://localhost:5000` for the backend.
