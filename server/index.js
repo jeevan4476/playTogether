@@ -1,10 +1,10 @@
-import express from 'express';
+import bcrypt from 'bcryptjs';
 import bodyParser from 'body-parser';
-import { connectDB } from './db.js';
-import User from './models/user.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import bcrypt from 'bcryptjs';
+import express from 'express';
+import { connectDB } from './db.js';
+import User from './models/user.js';
 
 dotenv.config();
 
