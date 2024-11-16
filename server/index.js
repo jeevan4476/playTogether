@@ -1,10 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { connectDB } from './db.js';
-import User from './models/user.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import bcrypt from 'bcryptjs';
+import {userRouter} from './router/userRoute.js';
+import eventRouter  from './router/eventRoute.js';
 
 dotenv.config();
 
@@ -16,57 +16,10 @@ connectDB();
 app.use(bodyParser.json());
 app.use(cors());
 // Routes
-app.post('/signup', async (req, res) => {
-    const { username, email, password } = req.body;
-    try {
-        const userExists = await  User.findOne({ email });
-        if (userExists) {
-            res.status(400);
-            throw new Error("User already exists");
-        }
-        const user = await User.create({
-            username,
-            email,
-            password
-        });
-        if (user) {
-            res.status(201).json({
-                _id: user._id,
-                username: user.username,
-                email: user.email,
-            });
-        } else {
-            res.status(400);
-            throw new Error("Invalid user data");
-        }
-    }
-    catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
 
-app.post('/signin', async (req, res) => {
-    const {username,password} = req.body;
-    try{
-        const userExists = await  User.findOne({ username });
-        if (!userExists) {
-            return res.status(400).json({ message: "Invalid credentials!" });
-        }
-        const isMatch = await bcrypt.compare(password, userExists.password);
-        if (!isMatch) {
-            return res.status(400).json({ message: "Wrong password" });
-        }
-        res.json({
-            _id: userExists._id,
-            username: userExists.username,
-            email: userExists.email,
-        });
-    } catch (e) {
-        res.status(500).json({
-            message: "Unable to sign in"
-        });
-}
-});
+
+app.use('/users', userRouter);
+app.use('/events', eventRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
