@@ -1,15 +1,9 @@
 import './App.css';
-import Appbar from './components/appbar';
-import Feature from './components/featured';
-import SubscribeSection from './components/footbar';
-import Carousel from './components/middle';
+import Homepage from './pages/Homepage';
 function App() {
   return (
-    <div className="App overflow-visible">
-      <Appbar /><br/>
-      <Carousel />
-      <Feature />
-      <SubscribeSection/>
+    <div>
+      <Homepage />
     </div>
   );
 }
