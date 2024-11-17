@@ -7,7 +7,7 @@ const applicationSchema = mongoose.Schema({
      },
      user: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "user"
+          ref: "User"
      },
      status: {
           type: String,
@@ -19,6 +19,6 @@ const applicationSchema = mongoose.Schema({
      }
 }, { versionKey: false, timestamps: true })
 
-const ApplicationModel = mongoose.model('application', applicationSchema);
+const Application = mongoose.model('application', applicationSchema);
 
-module.exports = ApplicationModel
+module.exports = Application;
