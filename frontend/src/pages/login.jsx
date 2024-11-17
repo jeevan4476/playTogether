@@ -34,12 +34,12 @@ export default function LoginPage({ setShowInjectedContent }) {
                 {/* Header */}
                 <div className="flex justify-between items-center mb-4">
                     <p className="text-lg font-bold">Login/Signup</p>
-                    <button
+                    <Link to='/'
                         className="text-gray-500 hover:text-gray-700"
                         onClick={() => setShowInjectedContent(false)}
                     >
                         X
-                    </button>
+                    </Link >
                 </div>
                 <hr />
 

@@ -21,7 +21,7 @@ function App() {
                     <Route path="/Book" element={<Book />} />
                     <Route path="*" element={<h1>Page Not Found</h1>} />
                     <Route path='/Login' element={<LoginPage/>} />
-                    <Route path='/Signup' element={<Signup />} />
+                    <Route path='/signup' element={<Signup />} />
                 </Routes>
             </div>
         </Router>
