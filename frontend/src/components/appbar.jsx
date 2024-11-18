@@ -3,7 +3,7 @@ import './styling.css';
 
 export default function Appbar() {
     return (
-        <div className="flex items-center justify-between p-4 border-b">
+        <div className="flex items-center justify-between p-4 border-b sticky top-0 bg-white">
             {/* Logo and Search Bar */}
             <div className="flex items-center space-x-4">
                 <span className="font-bold text-lg">playTogether</span>
