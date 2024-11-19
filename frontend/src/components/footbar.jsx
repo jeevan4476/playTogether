@@ -1,39 +1,23 @@
-
 function SubscribeSection() {
   return (
-    <div className="flex flex-col items-center justify-end min-h-0 bg-white pb-3 space-y-2">
-      <hr className="w-full max-w-3xl border-t-2 border-gray-300 " />
-      {/* Subscription Content */}
-      <div className="flex flex-col md:flex-row items-start justify-between w-full max-w-3xl p-6 space-y-6 md:space-y-0 md:space-x-6">
-        {/* Left Side - Heading and Description */}
-        <div className="flex flex-col space-y-2 ">
-          <h2 className="text-2xl font-bold">Subscribe for Updates</h2>
-          <p className="text-gray-600">Stay informed about new venues</p>
-        </div>
-
-        {/* Right Side - Input and Button */}
-        <div className="flex flex-col space-y-3 w-full md:w-1/2">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            className="border border-gray-300 rounded p-2 w-full"
-          />
-          <p className="text-xs text-gray-500"> We&apos;ll send you the latest updates</p>
-          <button className="bg-black text-white font-semibold py-2 rounded mt-2 hover:bg-gray-800 ">
-            Subscribe
-          </button>
-        </div>
+      <div className="bg-indigo-50 p-6 mt-12">
+          <div className="flex flex-col md:flex-row items-center justify-between mx-auto max-w-4xl space-y-6 md:space-y-0">
+              {/* Heading and Description */}
+              <div>
+                  <h2 className="text-2xl font-bold text-indigo-600">Subscribe for Updates</h2>
+                  <p className="text-gray-600">Stay informed about new venues and events</p>
+              </div>
+              {/* Input and Button */}
+              <div className="flex items-center w-full md:w-1/2 space-x-4">
+                  <input
+                      type="email"
+                      placeholder="Enter your email"
+                      className="w-full py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  />
+                  <button className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700">Subscribe</button>
+              </div>
+          </div>
       </div>
-
-      {/* Footer Links */}
-      <div className="mt-16 flex space-x-6 text-sm text-gray-600 mt-*">
-         <a href="#" className="hover:underline">Contact Us</a>
-         <a href="#" className="hover:underline">Privacy Policy</a>
-         <a href="#" className="hover:underline">Terms of Service</a>
-      </div>
-    </div>
   );
 }
 

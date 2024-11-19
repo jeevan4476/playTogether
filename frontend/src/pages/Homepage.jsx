@@ -6,7 +6,7 @@ import Appbar from '../components/appbar';
 
 export default function Homepage() {
     return (
-        <div className="App overflow-visible">
+        <div className="App overflow-visible bg-indigo-50">
             <Appbar />
             <Carousel />
             <Feature />

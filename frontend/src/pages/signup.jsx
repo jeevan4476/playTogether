@@ -1,45 +1,3 @@
-// import React from "react";
-
-// export default function Signup() {
-//     return (
-//         <div className="flex justify-center items-center h-screen bg-gray-200">
-//         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-//             <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-//             Signup
-//             </h2>
-//             <form>
-//             <div className="mb-4">
-//                 <label className="block text-gray-700">Email</label>
-//                 <input
-//                 type="email"
-//                 placeholder="Enter your email"
-//                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                 />
-//             </div>
-//             <div className="mb-4">
-//                 <label className="block text-gray-700">Password</label>
-//                 <input
-//                 type="password"
-//                 placeholder="Enter your password"
-//                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                 />
-//             </div>
-//             <div className="mb-4">
-//                 <label className="block text-gray-700">Confirm Password</label>
-//                 <input
-//                 type="password"
-//                 placeholder="Confirm your password"
-//                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-//                 />
-//             </div>
-//             <button className="w-full bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
-//                 Signup
-//             </button>
-//             </form>
-//         </div>
-//         </div>
-//   );
-// }
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -60,8 +18,6 @@ export default function SignupPage() {
             .then((res) => {
                 localStorage.setItem('token', res.data.token);
                 navigate('/');
-                // alert("Signup Successful!");
-                // setShowInjectedContent(false); // Close modal after successful signup
             })
             .catch((e) => {
                 console.error("Error during signup:", e);
@@ -71,106 +27,114 @@ export default function SignupPage() {
 
     return (
         <>
-        <Appbar/>
-        <div
-            className="modal-overlay fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
-        >
-            {/* Modal Content */}
-            <div
-                className="bg-white rounded-3xl w-full max-w-lg h-auto p-6 shadow-lg relative"
-                onClick={(e) => e.stopPropagation()}
-            >
-                {/* Header */}
-                <div className="flex justify-between items-center mb-4">
-                    <p className="text-lg font-bold">Signup</p>
-                    <Link to='/'
-                        className="text-gray-500 hover:text-gray-700"
-                    >
-                        X
-                    </Link>
+            <Appbar />
+            <div className="fixed inset-0 bg-gradient-to-b from-blue-50 to-blue-100 flex justify-center items-center">
+                {/* Modal Content */}
+                <div className="bg-white rounded-3xl w-full max-w-lg h-auto p-8 shadow-xl">
+                    {/* Header */}
+                    <div className="flex justify-between items-center mb-6">
+                        <p className="text-2xl font-bold text-indigo-600">Signup</p>
+                        <Link
+                            to='/'
+                            className="text-gray-400 hover:text-gray-600 text-lg"
+                        >
+                            &times;
+                        </Link>
+                    </div>
+                    <hr className="mb-6 border-gray-300" />
+
+                    {/* Form */}
+                    <div className="space-y-6">
+                        {/* Username */}
+                        <div>
+                            <label
+                                htmlFor="username"
+                                className="block text-sm font-semibold text-gray-700 mb-2"
+                            >
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="Enter your username"
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:indigo-blue-500 focus:indigo-blue-500"
+                                onChange={(e) =>
+                                    setDetails((prev) => ({
+                                        ...prev,
+                                        username: e.target.value,
+                                    }))
+                                }
+                            />
+                        </div>
+
+                        {/* Email */}
+                        <div>
+                            <label
+                                htmlFor="email"
+                                className="block text-sm font-semibold text-gray-700 mb-2"
+                            >
+                                Email
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:indigo-blue-500 focus:indigo-blue-500"
+                                onChange={(e) =>
+                                    setDetails((prev) => ({
+                                        ...prev,
+                                        email: e.target.value,
+                                    }))
+                                }
+                            />
+                        </div>
+
+                        {/* Password */}
+                        <div>
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-semibold text-gray-700 mb-2"
+                            >
+                                Password
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:indigo-blue-500 focus:borderindigo-500"
+                                onChange={(e) =>
+                                    setDetails((prev) => ({
+                                        ...prev,
+                                        password: e.target.value,
+                                    }))
+                                }
+                            />
+                        </div>
+
+                        {/* Signup Button */}
+                        <button
+                            className="w-full py-3 bg-indigo-500 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition duration-150"
+                            onClick={handleSubmit}
+                        >
+                            Signup
+                        </button>
+                    </div>
+
+                    {/* Divider */}
+                    <hr className="my-6 border-gray-300" />
+
+                    {/* Login Link */}
+                    <p className="text-center text-gray-600">
+                        Already have an account?{" "}
+                        <Link
+                            to="/login"
+                            className="text-indigo-500 font-semibold hover:underline"
+                        >
+                            Login
+                        </Link>
+                    </p>
                 </div>
-                <hr />
-
-                {/* Form */}
-                <div className="mt-6 space-y-4">
-                    {/* Username */}
-                    <div>
-                        <label htmlFor="username" className="block text-gray-700 font-medium mb-1">
-                            Username
-                        </label>
-                        <input
-                            type="text"
-                            id="username"
-                            placeholder="Enter your username"
-                            className="w-full p-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            onChange={(e) =>
-                                setDetails((prev) => ({
-                                    ...prev,
-                                    username: e.target.value,
-                                }))
-                            }
-                        />
-                    </div>
-
-                    {/* Email */}
-                    <div>
-                        <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
-                            Email
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            className="w-full p-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            onChange={(e) =>
-                                setDetails((prev) => ({
-                                    ...prev,
-                                    email: e.target.value,
-                                }))
-                            }
-                        />
-                    </div>
-
-                    {/* Password */}
-                    <div>
-                        <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
-                            Password
-                        </label>
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            className="w-full p-3 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            onChange={(e) =>
-                                setDetails((prev) => ({
-                                    ...prev,
-                                    password: e.target.value,
-                                }))
-                            }
-                        />
-                    </div>
-
-                    {/* Signup Button */}
-                    <button
-                        className="w-full bg-gray-400 text-white py-2 rounded-lg hover:bg-blue-600"
-                        onClick={handleSubmit}
-                    >
-                        Signup
-                    </button>
-                </div>
-
-                {/* Divider */}
-                <hr className="my-6" />
-
-                {/* Login Link */}
-                <p className="text-center text-gray-700">
-                    Already have an account?{" "}
-                    <Link to="/login" className="text-gray-500 hover:underline font-medium">
-                        Login
-                    </Link>
-                </p>
             </div>
-        </div>
         </>
     );
 }

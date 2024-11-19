@@ -11,14 +11,14 @@ export default function Layout () {
     return(
         <>
             <Appbar/>
-            <div className="p-4 text-center bg-gray-100">
-        <label htmlFor="sport-select" className="block mb-2 text-lg font-semibold">
+            <div className="p-4 text-center bg-indigo-100">
+        <label htmlFor="sport-select" className="block mb-2 text-lg text-indigo-900 font-bold">
             The best-rated play arenas in your city
         </label>
         <select
             id="sport-select"
             onChange={handleChange}
-            className="border border-gray-300 rounded-lg p-2 shadow-md cursor-pointer "
+            className="border border-indigo-300 rounded-lg p-2 shadow-md cursor-pointer mb-4 "
             
         >
             <option value="select">Select Sport</option>
@@ -27,7 +27,7 @@ export default function Layout () {
             <option value="basketball">Basketball</option>
             <option value="cricket">Cricket</option>
         </select>
-        <main className="p-4 bg-white min-h-screen">
+        <main className="p-4 min-h-screen">
             <Outlet/>
         </main>   
         </div>
