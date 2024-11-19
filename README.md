@@ -3,11 +3,10 @@ This project is a platform for discovering, booking, and organizing sports activ
 ## Features
 
 - Book sports facilities (badminton, tennis, football fields, etc.).
-- Create or join sports events.
+- join sports events.
 - Connect with other players.
-- Rate and review facilities.
-- Secure user authentication and payments.
-- Mobile-friendly design.
+- Secure user authentication .
+- friendly design.
 
 ## Tech Stack
 
@@ -46,6 +45,7 @@ This project is a platform for discovering, booking, and organizing sports activ
    PORT=5000
    MONGO_URI=<your-mongo-db-uri>
    JWT_SECRET=<your-secret-key>
+   API_KEY=<foursquare-api-key>
    ```
 
 4. **Run the Application**:
