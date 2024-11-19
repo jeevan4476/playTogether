@@ -18,8 +18,6 @@ function Carousel() {
     <p className="">find exciting games to play and connect with other players</p>
     <input className="mt-3 bg-gray-100 pt-1 p-2 mb-4" placeholder="Enter Location..."></input>
     <hr className="w-full  "></hr>
-
-    
   </div>
 </div>
 

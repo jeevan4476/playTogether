@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcryptjs';
-
+import jwt from 'jsonwebtoken';
 
 const userRouter = Router();
 
@@ -18,11 +18,16 @@ userRouter.post('/signup', async (req, res) => {
             email,
             password
         });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '1h',
+        });
+
         if (user) {
             res.status(201).json({
                 _id: user._id,
                 username: user.username,
                 email: user.email,
+                token: token
             });
         } else {
             res.status(400);
@@ -45,10 +50,15 @@ userRouter.post('/signin', async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ message: "Wrong password" });
         }
+        
+        const token = jwt.sign({ id: userExists._id }, process.env.JWT_SECRET, {
+            expiresIn: '1h',
+        });
         res.json({
             _id: userExists._id,
             username: userExists.username,
             email: userExists.email,
+            token: token
         });
     } catch (e) {
         res.status(500).json({

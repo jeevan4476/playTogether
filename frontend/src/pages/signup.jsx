@@ -43,8 +43,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Appbar from "../components/appbar";
 
-export default function SignupPage({ setShowInjectedContent }) {
+export default function SignupPage() {
+    const navigate = useNavigate();
     const [details, setDetails] = useState({
         username: "",
         email: "",
@@ -55,9 +58,10 @@ export default function SignupPage({ setShowInjectedContent }) {
         axios
             .post("http://localhost:3000/users/signup", details)
             .then((res) => {
-                console.log(res.data);
-                alert("Signup Successful!");
-                setShowInjectedContent(false); // Close modal after successful signup
+                localStorage.setItem('token', res.data.token);
+                navigate('/');
+                // alert("Signup Successful!");
+                // setShowInjectedContent(false); // Close modal after successful signup
             })
             .catch((e) => {
                 console.error("Error during signup:", e);
@@ -66,9 +70,10 @@ export default function SignupPage({ setShowInjectedContent }) {
     };
 
     return (
+        <>
+        <Appbar/>
         <div
             className="modal-overlay fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center"
-            onClick={() => setShowInjectedContent(false)}
         >
             {/* Modal Content */}
             <div
@@ -80,7 +85,6 @@ export default function SignupPage({ setShowInjectedContent }) {
                     <p className="text-lg font-bold">Signup</p>
                     <Link to='/'
                         className="text-gray-500 hover:text-gray-700"
-                        onClick={() => setShowInjectedContent(false)}
                     >
                         X
                     </Link>
@@ -167,5 +171,6 @@ export default function SignupPage({ setShowInjectedContent }) {
                 </p>
             </div>
         </div>
+        </>
     );
 }

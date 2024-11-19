@@ -4,8 +4,9 @@ import { connectDB } from './db.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import {userRouter} from './router/userRoute.js';
-import {eventRouter}  from './router/eventRoute.js';
-import {applicationRouter} from './router/applicationRoute.js';
+import {turfRouter} from './router/turfRoute.js';
+import {bookRouter} from './router/bookRoute.js';
+
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const app = express();
 
 const PORT = process.env.PORT ;
 connectDB();
+
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,9 +22,11 @@ app.use(cors());
 
 
 app.use('/users', userRouter);
-app.use('/events', eventRouter);
-app.use('/applications', applicationRouter);
+app.use('/turfs', turfRouter);   
+app.use('/bookings', bookRouter);
 
-app.listen(PORT, () => {
+
+app.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
+
 });
