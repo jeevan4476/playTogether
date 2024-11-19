@@ -64,7 +64,7 @@ This project is a platform for discovering, booking, and organizing sports activ
       npm run dev
       ```
 
-    Visit `http://localhost:3000` for the frontend and `http://localhost:5000` for the backend.
+    Visit `http://localhost:5173` for the frontend and `http://localhost:3000` for the backend.
 
 ## License
 
