@@ -21,10 +21,10 @@ export default function Layout () {
             className="border border-indigo-300 rounded-lg p-2 shadow-md cursor-pointer mb-4 "
             
         >
-            <option value="select">Select Sport</option>
+            <option value="select" disabled>Select Sport</option>
             <option value="all">all</option>
             <option value="football">Football</option>
-            <option value="basketball">Basketball</option>
+            <option value="tennis">Tennis</option>
             <option value="cricket">Cricket</option>
         </select>
         <main className="p-4 min-h-screen">

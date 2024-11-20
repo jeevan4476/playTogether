@@ -6,12 +6,12 @@ import dotenv from 'dotenv';
 import {userRouter} from './router/userRoute.js';
 import {turfRouter} from './router/turfRoute.js';
 import {bookRouter} from './router/bookRoute.js';
-
+import http from 'http';
 
 dotenv.config();
 
 const app = express();
-
+const server =  http.createServer(app);
 const PORT = process.env.PORT ;
 connectDB();
 
@@ -26,7 +26,7 @@ app.use('/turfs', turfRouter);
 app.use('/bookings', bookRouter);
 
 
-app.listen(PORT, async () => {
+server.listen(PORT, async () => {
     console.log(`Server is running on port ${PORT}`);
 
 });

@@ -37,6 +37,7 @@ export default function All() {
                         rating={a.rating}
                         reviews={a.reviews}
                         image={a.image}
+                        price={a.price}
                     />
                 ))}
             </div>
