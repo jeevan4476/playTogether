@@ -10,6 +10,7 @@ import Signup from './pages/signup';
 import All from './pages/AllTurf';
 import Profile from './pages/profile';
 import SpecificCategory from './pages/Specific';
+import UserDetailsUpdate from './components/update';
 
 function App() {
     return (
@@ -26,7 +27,8 @@ function App() {
                     <Route path="/venue/:id" element={<VenueDetails />} /> {/* Venue Details */}
                     <Route path="/booking/:id" element={<BookVenue />} />  
                     <Route path="/profile" element={<Profile/>} />
-                    <Route path="*" element={<h1>Page Not Found</h1>} />              
+                    <Route path="*" element={<h1>Page Not Found</h1>} />  
+                    <Route path='/update' element={<UserDetailsUpdate/>}/>         
                 </Routes>
             </div>
         </BrowserRouter>

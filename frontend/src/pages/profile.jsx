@@ -41,17 +41,27 @@ return (
             <button onClick={()=>{
                 localStorage.removeItem('token');
                 navigate('/');
-            }}>
+            
+            }}
+            className="mb-5">
                 <label className="bg-red-500 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-red-600">
                     Logout
                 </label>
+            </button>
+            <button onClick={
+                ()=>navigate('/update')
+            }>
+                <label className="bg-blue-500 text-white px-6 py-2 rounded-lg cursor-pointer hover:bg-blue-600">
+                    Update
+                </label>
+
             </button>
         </div>
 
         {/* User Info */}
         <div className="text-center md:text-left">
-            <h1 className="text-2xl font-bold text-gray-800">{data?.username || "Username"}</h1>
-            <p className="text-gray-600 text-sm">{data?.email || "Email"}</p>
+            <h1 className="text-2xl font-bold text-gray-800">{data.username || "Username"}</h1>
+            <p className="text-gray-600 text-sm">{data.email || "Email"}</p>
             <p className="text-gray-600 text-sm mt-1">Bangalore, India</p>
             <p className="text-gray-800 mt-4 leading-relaxed">{bio}</p>
         </div>

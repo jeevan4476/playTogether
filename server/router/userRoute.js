@@ -67,6 +67,32 @@ userRouter.post('/signin', async (req, res) => {
 }
 });
 
+//make an route for updating the user details
+userRouter.put('/update', async (req, res) => {
+    const { id,username, email, password } = req.body;
+    try {
+        const user = await User.findById(id);
+        if (user) {
+            user.username = username || user.username;
+            user.email = email || user.email;
+            user.password = password || user.password;
+
+            const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
+            
+            res.json({
+                _id: updatedUser._id,
+                username: updatedUser.username,
+                email: updatedUser.email
+            });
+        } else {
+            res.status(404);
+            throw new Error("User not found");
+        }
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+}
+);
 
 
 export { userRouter };
