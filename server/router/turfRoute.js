@@ -1,7 +1,6 @@
 import { Router } from "express";
 import axios from "axios";
 import Turf from "../models/turf.js";
-import { authcheck } from "../middlewares/auth.js";
 
 const turfRouter = Router();
 

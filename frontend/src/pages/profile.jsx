@@ -29,9 +29,15 @@ return (
         <Appbar />
         <div className="lg:mx-20 mt-8">
         <div className="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row items-center md:items-start gap-6">
-        {/* Profile Picture and Logout Button */}
+        
         <div className="flex flex-col items-center md:items-start">
-            <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden mb-4"></div>
+        <div className="w-24 h-24 rounded-full bg-gray-200 overflow-hidden mb-4">
+        <img 
+            src="https://cdn0.iconfinder.com/data/icons/doodle-general-office/91/Doodle_General_-_Office_33-512.png" 
+            alt="Profile"
+            className="w-full h-full object-cover"
+        />
+    </div>
             <button onClick={()=>{
                 localStorage.removeItem('token');
                 navigate('/');

@@ -27,7 +27,10 @@ import Appbar from "../components/appbar";
             ⭐ {venue.rating || "N/A"}
             <span className="text-gray-400 text-sm">({venue.reviews || 0} reviews)</span>
             </div>
-
+            <div>
+            <span className="text-gray-500 text-sm">Price:</span>
+            <span className="text-green-500 font-bold text-lg"> &#8377;{venue.price || 0}</span>
+            </div>
             <p className="text-gray-700 mt-4">
             Welcome to {venue.name}! This venue offers excellent facilities for
             sports enthusiasts, including high-quality turf and amenities. Book
