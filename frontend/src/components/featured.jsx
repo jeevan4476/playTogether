@@ -12,6 +12,7 @@ export default function Feature() {
                     </div>
                     <h3 className="font-semibold text-gray-800">Turf Side</h3>
                     <p className="text-sm text-gray-600">Location: Bangalore</p>
+                    
                 </div>
                 <div className="border rounded-lg shadow-sm p-4 bg-gray-50 hover:shadow-md transition hover:scale-90">
                     <span className="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-1 rounded-full">Book Now</span>
