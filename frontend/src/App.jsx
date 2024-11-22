@@ -1,14 +1,15 @@
 
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Layout from './pages/Layout';
+import All from './pages/AllTurf';
 import BookVenue from './pages/bookingpage';
 import VenueDetails from './pages/fullpage';
 import Homepage from './pages/Homepage';
+import Layout from './pages/Layout';
 import LoginPage from './pages/login';
-import Signup from './pages/signup';
-import All from './pages/AllTurf';
+import PaymentPage from './pages/payment';
 import Profile from './pages/profile';
+import Signup from './pages/signup';
 import SpecificCategory from './pages/Specific';
 import UserDetailsUpdate from './components/update';
 
@@ -27,8 +28,9 @@ function App() {
                     <Route path="/venue/:id" element={<VenueDetails />} /> {/* Venue Details */}
                     <Route path="/booking/:id" element={<BookVenue />} />  
                     <Route path="/profile" element={<Profile/>} />
-                    <Route path="*" element={<h1>Page Not Found</h1>} />  
                     <Route path='/update' element={<UserDetailsUpdate/>}/>         
+                    <Route path="*" element={<h1>Page Not Found</h1>} />
+                    <Route path="/payment" element={<PaymentPage/>}/>
                 </Routes>
             </div>
         </BrowserRouter>

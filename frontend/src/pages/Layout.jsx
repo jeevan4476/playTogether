@@ -1,4 +1,4 @@
-import { Outlet,useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Appbar from "../components/appbar";
 
 export default function Layout () {
@@ -22,7 +22,7 @@ export default function Layout () {
             
         >
             <option value="select" disabled>Select Sport</option>
-            <option value="all">all</option>
+            <option value="all">All</option>
             <option value="football">Football</option>
             <option value="tennis">Tennis</option>
             <option value="cricket">Cricket</option>

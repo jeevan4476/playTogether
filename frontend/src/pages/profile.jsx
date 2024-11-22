@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Appbar from "../components/appbar";
 import { useUser } from "../hooks/index";
-import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
 const { data ,refetch } = useUser();
@@ -25,9 +25,9 @@ const handleCancel = async () => {
 
 }
 return (
-    <>
+    <div className="">
         <Appbar />
-        <div className="lg:mx-20 mt-8">
+        <div className="lg:mx-20 mt-8 ">
         <div className="bg-gray-100 rounded-lg p-6 shadow-md flex flex-col md:flex-row items-center md:items-start gap-6">
         
         <div className="flex flex-col items-center md:items-start">
@@ -83,7 +83,7 @@ return (
 
         <div className="mt-8 ">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Bookings</h2>
-            <div className="max-h-96 overflow-y-auto">
+            <div className="max-h-96 overflow-y-auto ">
             <div className="space-y-4">
             {bookings.length > 0 ? (
                 bookings.map((booking) => (
@@ -93,7 +93,7 @@ return (
                 >
                 <div>
                     <h3 className="text-lg font-bold text-gray-800">{booking.turf.name}</h3>
-                    <p className="text-gray-600">Date: {booking.date}</p>
+                    <p className="text-gray-600">Date: {booking.date}  {booking.startTime}pm {booking.timeSlot}hrs </p>
                     </div>
                     <button 
                     className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -161,6 +161,6 @@ return (
         )
         }
         </div>
-    </>
+    </div>
 );
 }

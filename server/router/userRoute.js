@@ -67,7 +67,6 @@ userRouter.post('/signin', async (req, res) => {
 }
 });
 
-//make an route for updating the user details
 userRouter.put('/update', async (req, res) => {
     const { id,username, email, password } = req.body;
     try {
