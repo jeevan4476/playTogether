@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const TurfSchema = new mongoose.Schema({
+  fsq_id: { type: String, unique: true,required: true },
   name: { type: String, required: true },
   address: { type: String, required: true },
   category: { type: String, required: true },
